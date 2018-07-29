@@ -6,7 +6,8 @@ import stack.StackTest;
 public class Main {
 
     public static void main(String[] args) {
-        SortingTest.speedTest(100000);
+        //SortingTest.speedTest(100000);
+        SortingTest.mergeSortTestNonRecursion(15);
     }
 
 }

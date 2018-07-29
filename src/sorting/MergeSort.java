@@ -41,18 +41,18 @@ public class MergeSort {
     public static int[] mergeSortNonRecursion(int[] nums) {
         int[] tmp = new int[nums.length];
         int loop = 0;
-        int k;
-        for(k = 2; k < nums.length; k *= 2) {
+        for(int k = 2; k < nums.length * 2; k *= 2) {
             for(int first = 0; first < nums.length; first += k) {
+                int mid = first + k / 2 - 1;
+                if(mid >= nums.length) {
+                    break;
+                }
                 int last = first + k - 1;
                 last = last >= nums.length ? nums.length - 1 : last;
-                int mid = (first + last) / 2;
                 merge(nums, first, mid, last, tmp);
             }
             //System.out.println(++loop + ": " + Arrays.toString(nums));
         }
-        merge(nums, 0, k / 2 - 1, nums.length - 1, tmp);
-        //System.out.println(++loop + ": " + Arrays.toString(nums));
         return nums;
     }
 }
