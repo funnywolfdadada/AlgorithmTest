@@ -6,7 +6,7 @@ import stack.StackTest;
 public class Main {
 
     public static void main(String[] args) {
-        ListTest.simpleListTest(10);
+        SortingTest.speedTest(100000);
     }
 
 }

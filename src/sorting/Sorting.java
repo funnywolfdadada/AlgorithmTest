@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class Sorting {
 
+    public static final boolean DEBUG = false;
+
     public static int[] selectionSort(int[] nums) {
         if(nums == null) {
             return null;
@@ -17,7 +19,9 @@ public class Sorting {
                     nums[j] = tmp;
                 }
             }
-            System.out.println(++k + ": " + Arrays.toString(nums));
+            if(DEBUG) {
+                System.out.println(++k + ": " + Arrays.toString(nums));
+            }
         }
         return nums;
     }
@@ -40,7 +44,9 @@ public class Sorting {
             if(j < 0) {
                 nums[0] = tmp;
             }
-            System.out.println(++k + ": " + Arrays.toString(nums));
+            if(DEBUG) {
+                System.out.println(++k + ": " + Arrays.toString(nums));
+            }
         }
         return nums;
     }
@@ -58,9 +64,25 @@ public class Sorting {
                     nums[j - 1] = tmp;
                 }
             }
-            System.out.println(++k + ": " + Arrays.toString(nums));
+            if(DEBUG) {
+                System.out.println(++k + ": " + Arrays.toString(nums));
+            }
         }
         return nums;
+    }
+
+    public static int[] mergeSort(int[] nums) {
+        if(nums == null) {
+            return null;
+        }
+        return MergeSort.mergeSort(nums);
+    }
+
+    public static int[] mergeSortNonRecursion(int[] nums) {
+        if(nums == null) {
+            return null;
+        }
+        return MergeSort.mergeSortNonRecursion(nums);
     }
 
 }
