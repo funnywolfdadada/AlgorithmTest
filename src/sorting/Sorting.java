@@ -92,4 +92,11 @@ public class Sorting {
         return QuickSort.quickSort(nums);
     }
 
+    public static int[] shellSort(int[] nums) {
+        if(nums == null) {
+            return null;
+        }
+        return ShellSort.shellSort(nums);
+    }
+
 }

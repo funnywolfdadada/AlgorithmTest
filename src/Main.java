@@ -6,8 +6,8 @@ import stack.StackTest;
 public class Main {
 
     public static void main(String[] args) {
-        SortingTest.speedTest(20000);
-        //SortingTest.quickSortTest(10);
+        //SortingTest.speedTest(10000);
+        SortingTest.shellSortTest(10);
     }
 
 }

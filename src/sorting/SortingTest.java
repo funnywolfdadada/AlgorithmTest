@@ -100,6 +100,23 @@ public class SortingTest {
         System.out.println("quickSortTest end");
     }
 
+    public static void shellSortTest(int n) {
+        if(n <= 0) {
+            return;
+        }
+        System.out.println("shellSortTest start");
+        int[] nums = new int[n];
+        nums[0] = n / 2;
+        for(int i = 1; i < n; i++) {
+            //nums[i] = n - i;
+            nums[i] = mRandom.nextInt(n);
+        }
+        System.out.println("before: " + Arrays.toString(nums));
+        Sorting.shellSort(nums);
+        System.out.println("after: " + Arrays.toString(nums));
+        System.out.println("shellSortTest end");
+    }
+
     public static void speedTest(int n) {
         if(n <= 0) {
             return;
@@ -134,6 +151,10 @@ public class SortingTest {
         t = System.currentTimeMillis();
         Sorting.quickSort(nums.clone());
         System.out.println("quickSort: " + (System.currentTimeMillis() - t) + "ms");
+
+        t = System.currentTimeMillis();
+        Sorting.shellSort(nums.clone());
+        System.out.println("shellSort: " + (System.currentTimeMillis() - t) + "ms");
 
         System.out.println("speedTest end");
     }
