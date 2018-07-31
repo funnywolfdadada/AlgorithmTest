@@ -85,4 +85,11 @@ public class Sorting {
         return MergeSort.mergeSortNonRecursion(nums);
     }
 
+    public static int[] quickSort(int[] nums) {
+        if(nums == null) {
+            return null;
+        }
+        return QuickSort.quickSort(nums);
+    }
+
 }

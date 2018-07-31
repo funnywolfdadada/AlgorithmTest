@@ -83,6 +83,23 @@ public class SortingTest {
         System.out.println("mergeSortTestNonRecursion end");
     }
 
+    public static void quickSortTest(int n) {
+        if(n <= 0) {
+            return;
+        }
+        System.out.println("quickSortTest start");
+        int[] nums = new int[n];
+        nums[0] = n / 2;
+        for(int i = 1; i < n; i++) {
+            //nums[i] = n - i;
+            nums[i] = mRandom.nextInt(n);
+        }
+        System.out.println("before: " + Arrays.toString(nums));
+        Sorting.quickSort(nums);
+        System.out.println("after: " + Arrays.toString(nums));
+        System.out.println("quickSortTest end");
+    }
+
     public static void speedTest(int n) {
         if(n <= 0) {
             return;
@@ -113,6 +130,10 @@ public class SortingTest {
         t = System.currentTimeMillis();
         Sorting.mergeSortNonRecursion(nums.clone());
         System.out.println("mergeSortNonRecursion: " + (System.currentTimeMillis() - t) + "ms");
+
+        t = System.currentTimeMillis();
+        Sorting.quickSort(nums.clone());
+        System.out.println("quickSort: " + (System.currentTimeMillis() - t) + "ms");
 
         System.out.println("speedTest end");
     }
