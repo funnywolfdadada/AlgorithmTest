@@ -1,21 +1,9 @@
+package array;
+
 import java.util.Arrays;
 
 public class FullArray {
-    public static void fullArrayTest(int n) {
-        if(n <= 0) {
-            return;
-        }
-        System.out.println("fullArrayTest start");
-        int[] nums = new int[n];
-        for(int i = 0; i < n; i++) {
-            nums[i] = i;
-        }
-        nums[n - 1] = n - 2;
-        fullArray(nums, 0, n - 1);
-        System.out.println("fullArrayTest end");
-    }
-
-    private static void fullArray(int[] nums, int start, int end) {
+    public static void fullArray(int[] nums, int start, int end) {
         if(start == end) {
             System.out.println(Arrays.toString(nums));
             return;
