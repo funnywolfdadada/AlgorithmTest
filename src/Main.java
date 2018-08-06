@@ -1,12 +1,10 @@
-import list.ListTest;
-import queue.QueueTest;
-import sorting.SortingTest;
-import stack.StackTest;
+import heap.Heap;
+import heap.HeapTest;
 
 public class Main {
 
     public static void main(String[] args) {
-        SortingTest.speedTest(10000);
+        HeapTest.heapTest(6);
     }
 
 }
