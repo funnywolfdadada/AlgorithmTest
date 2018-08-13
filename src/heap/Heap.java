@@ -14,19 +14,28 @@ public class Heap {
         initMinHeap();
     }
 
+    public void sort() {
+        System.out.println(mArray);
+        for(int i = mArray.size() - 1; i >= 1; i--) {
+            swap(i, 0);
+            adjustMinHeap(0, i - 1);
+            System.out.println(mArray);
+        }
+    }
+
     private void initMinHeap() {
         System.out.println(toString());
         for(int i = mArray.size() / 2 - 1; i >= 0; i--) {
-            adjustMinHeap(i);
+            adjustMinHeap(i, mArray.size() - 1);
             System.out.println(toString());
         }
     }
 
-    private void adjustMinHeap(int parent) {
-        for(int child = parent * 2 + 1; child < mArray.size(); child++) {
+    private void adjustMinHeap(int parent, int end) {
+        for(int child = parent * 2 + 1; child <= end; child++) {
             if(mArray.get(child) < mArray.get(parent)) {
                 swap(child, parent);
-                adjustMinHeap(child);
+                adjustMinHeap(child, end);
             }
         }
     }

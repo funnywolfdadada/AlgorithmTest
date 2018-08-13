@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class HeapTest {
-    private static Random mRandom = new Random(17);
+    private static Random mRandom = new Random(System.currentTimeMillis());
 
     public static void heapTest(int n) {
         if(n <= 0) {
@@ -18,6 +18,8 @@ public class HeapTest {
         System.out.println("Array: " + Arrays.toString(nums));
         Heap heap = new Heap(nums);
         System.out.println("to Heap:\n" + heap);
+        heap.sort();
+        System.out.println("after sort:\n" + heap);
         System.out.println("heapTest end");
     }
 }
