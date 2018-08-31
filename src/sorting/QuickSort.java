@@ -20,17 +20,22 @@ public class QuickSort {
 
     private static int boundary(int[] nums, int start, int end) {
         int ref = nums[start];
-        int boundary = start;
-        for(int i = start + 1; i <= end; i++) {
-            if(nums[i] < ref) {
-                int tmp = nums[i];
-                for(int j = i; j > boundary; j--) {
-                    nums[j] = nums[j - 1];
-                }
-                nums[boundary++] = tmp;
+        int i = start, j = end;
+        while (i < j) {
+            while (i < j && nums[j] >= ref) {
+                j--;
             }
-            //System.out.println(boundary + ", " + Arrays.toString(nums));
+            if(i < j) {
+                nums[i] = nums[j];
+            }
+            while (i < j && nums[i] <= ref) {
+                i++;
+            }
+            if(i < j) {
+                nums[j] = nums[i];
+            }
         }
-        return boundary;
+        nums[i] = ref;
+        return i;
     }
 }

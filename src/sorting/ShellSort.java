@@ -10,7 +10,7 @@ public class ShellSort {
             step = step / 3 + 1;
             for(int i = 0; i < step; i++) {
                 insert(nums, i, step);
-                System.out.println(++k + ": " + Arrays.toString(nums));
+                //System.out.println(++k + ": " + Arrays.toString(nums));
             }
         }while (step > 1);
         return nums;
