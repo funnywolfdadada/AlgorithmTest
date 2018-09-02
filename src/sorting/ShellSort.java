@@ -19,17 +19,12 @@ public class ShellSort {
     private static void insert(int[] nums, int start, int step) {
         for(int i = start + step; i < nums.length; i += step) {
             int tmp = nums[i];
-            int j;
-            for(j = i - step; j >= start; j -= step) {
-                if(nums[j] < tmp) {
-                    nums[j + step] = tmp;
-                    break;
-                }
+            int j = i - step;
+            while (j >= 0 && nums[j] > tmp) {
                 nums[j + step] = nums[j];
+                j -= step;
             }
-            if(j < start) {
-                nums[j + step] = tmp;
-            }
+            nums[j + step] = tmp;
         }
     }
 }

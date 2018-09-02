@@ -8,7 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
         SortingTest.speedTest(100000);
-        //SortingTest.quickSortTest(10);
     }
 
 }

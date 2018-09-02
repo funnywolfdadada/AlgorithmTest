@@ -35,17 +35,12 @@ public class Sorting {
         int k = 0;
         for(int i = 1; i < nums.length; i++) {
             int tmp = nums[i];
-            int j;
-            for(j = i - 1; j >= 0; j--) {
-                if(nums[j] < tmp) {
-                    nums[j + 1] = tmp;
-                    break;
-                }
+            int j = i - 1;
+            while (j >= 0 && nums[j] > tmp) {
                 nums[j + 1] = nums[j];
+                j--;
             }
-            if(j < 0) {
-                nums[0] = tmp;
-            }
+            nums[j + 1] = tmp;
             if(DEBUG) {
                 System.out.println(++k + ": " + Arrays.toString(nums));
             }
@@ -99,6 +94,13 @@ public class Sorting {
             return null;
         }
         return ShellSort.shellSort(nums);
+    }
+
+    public static int[] heapSort(int[] nums) {
+        if(nums == null) {
+            return null;
+        }
+        return HeapSort.heapSort(nums);
     }
 
 }

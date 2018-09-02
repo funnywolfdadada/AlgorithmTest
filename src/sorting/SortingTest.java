@@ -117,6 +117,23 @@ public class SortingTest {
         System.out.println("shellSortTest end");
     }
 
+    public static void heapSortTest(int n) {
+        if(n <= 0) {
+            return;
+        }
+        System.out.println("heapSortTest start");
+        int[] nums = new int[n];
+        nums[0] = n / 2;
+        for(int i = 1; i < n; i++) {
+            //nums[i] = n - i;
+            nums[i] = mRandom.nextInt(n);
+        }
+        System.out.println("before: " + Arrays.toString(nums));
+        HeapSort.heapSort(nums);
+        System.out.println("after: " + Arrays.toString(nums));
+        System.out.println("heapSortTest end");
+    }
+
     public static void speedTest(int n) {
         if(n <= 0) {
             return;
@@ -155,6 +172,10 @@ public class SortingTest {
         t = System.currentTimeMillis();
         Sorting.shellSort(nums.clone());
         System.out.println("shellSort: " + (System.currentTimeMillis() - t) + "ms");
+
+        t = System.currentTimeMillis();
+        Sorting.heapSort(nums.clone());
+        System.out.println("heapSort: " + (System.currentTimeMillis() - t) + "ms");
 
         System.out.println("speedTest end");
     }
