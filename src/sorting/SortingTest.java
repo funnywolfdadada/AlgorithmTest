@@ -37,6 +37,21 @@ public class SortingTest {
         System.out.println("insertionSortTest end");
     }
 
+    public static void binaryInsertionSortTest(int n) {
+        if(n <= 0) {
+            return;
+        }
+        System.out.println("binaryInsertionSortTest start");
+        int[] nums = new int[n];
+        for(int i = 0; i < n; i++) {
+            nums[i] = mRandom.nextInt(n);
+        }
+        System.out.println("before: " + Arrays.toString(nums));
+        Sorting.binaryInsertionSort(nums);
+        System.out.println("after: " + Arrays.toString(nums));
+        System.out.println("binaryInsertionSortTest end");
+    }
+
     public static void bubbleSortTest(int n) {
         if(n <= 0) {
             return;
@@ -173,6 +188,10 @@ public class SortingTest {
         t = System.currentTimeMillis();
         Sorting.insertionSort(nums.clone());
         System.out.println("insertionSort: " + (System.currentTimeMillis() - t) + "ms");
+
+        t = System.currentTimeMillis();
+        Sorting.binaryInsertionSort(nums.clone());
+        System.out.println("binaryInsertionSort: " + (System.currentTimeMillis() - t) + "ms");
 
         t = System.currentTimeMillis();
         Sorting.mergeSort(nums.clone());

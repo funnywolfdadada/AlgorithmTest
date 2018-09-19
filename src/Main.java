@@ -1,4 +1,5 @@
 import list.ListTest;
+import sorting.Sorting;
 import sorting.SortingTest;
 
 import java.io.*;
@@ -11,6 +12,8 @@ public class Main {
 
     public static void main(String[] args){
         //SortingTest.heapSortTest(10);
-        SortingTest.topKTest(10, 5);
+        //SortingTest.topKTest(10, 5);
+        SortingTest.speedTest(100000);
+        //SortingTest.binaryInsertionSortTest(10);
     }
 }

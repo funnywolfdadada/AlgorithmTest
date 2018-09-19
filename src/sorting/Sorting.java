@@ -48,6 +48,45 @@ public class Sorting {
         return nums;
     }
 
+    public static int[] binaryInsertionSort(int[] nums) {
+        if(nums == null) {
+            return null;
+        }
+        int k = 0;
+        for(int i = 1; i < nums.length; i++) {
+            int targetIndex = binaryFindPosition(nums, 0, i - 1, nums[i]);
+            int tmp = nums[i];
+            for (int j = i; j > targetIndex; j--) {
+                nums[j] = nums[j - 1];
+            }
+            nums[targetIndex] = tmp;
+            if(DEBUG) {
+                System.out.println(++k + ": " + Arrays.toString(nums));
+            }
+        }
+        return nums;
+    }
+
+    public static int binaryFindPosition(int[] nums, int start, int end, int target) {
+        if(target >= nums[end]) {
+            return end + 1;
+        }
+        if(target <= nums[start]) {
+            return start;
+        }
+        while (start < end) {
+            int mid = (start + end) / 2;
+            if(target > nums[mid]) {
+                start = mid + 1;
+            }else if(target < nums[mid]) {
+                end = mid - 1;
+            }else {
+                return mid + 1;
+            }
+        }
+        return start;
+    }
+
     public static int[] bubbleSort(int[] nums) {
         if(nums == null) {
             return null;

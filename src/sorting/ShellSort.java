@@ -4,15 +4,13 @@ import java.util.Arrays;
 
 public class ShellSort {
     public static int[] shellSort(int[] nums) {
-        int step = nums.length;
-        int k = 0;
-        do{
-            step = step / 3 + 1;
+        //int k = 0;
+        for (int step = nums.length / 2; step > 0; step /= 2){
             for(int i = 0; i < step; i++) {
                 insert(nums, i, step);
                 //System.out.println(++k + ": " + Arrays.toString(nums));
             }
-        }while (step > 1);
+        }
         return nums;
     }
 
