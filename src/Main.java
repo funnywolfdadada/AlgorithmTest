@@ -1,4 +1,5 @@
 import list.ListTest;
+import sorting.SortingTest;
 
 import java.io.*;
 import java.util.*;
@@ -9,6 +10,7 @@ import java.util.regex.*;
 public class Main {
 
     public static void main(String[] args){
-        ListTest.simpleListTest(10);
+        //SortingTest.heapSortTest(10);
+        SortingTest.topKTest(10, 5);
     }
 }

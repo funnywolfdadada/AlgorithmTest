@@ -134,6 +134,23 @@ public class SortingTest {
         System.out.println("heapSortTest end");
     }
 
+    public static void topKTest(int n, int k) {
+        if(n <= 0 || n < k) {
+            return;
+        }
+        System.out.println("topKTest start");
+        int[] nums = new int[n];
+        nums[0] = n / 2;
+        for(int i = 1; i < n; i++) {
+            //nums[i] = n - i;
+            nums[i] = mRandom.nextInt(n);
+        }
+        System.out.println("array: " + Arrays.toString(nums));
+        nums = HeapSort.topK(nums, k);
+        System.out.println("top k: " + Arrays.toString(nums));
+        System.out.println("topKTest end");
+    }
+
     public static void speedTest(int n) {
         if(n <= 0) {
             return;
