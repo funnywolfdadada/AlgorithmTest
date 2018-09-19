@@ -1,5 +1,6 @@
 package tree;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -13,7 +14,7 @@ public class BinaryTreeTest {
         int[] nums = new int[n];
         BinaryTree tree = new BinaryTree();
         for(int i = 0; i < n; i++) {
-            nums[i] = random.nextInt(n);
+            nums[i] = i;//random.nextInt(n);
             tree.insert(nums[i]);
         }
         System.out.println("Array: " + Arrays.toString(nums));
@@ -23,6 +24,9 @@ public class BinaryTreeTest {
         System.out.println("layerOrder: " + tree.layerOrder());
         System.out.println("maxDepth: " + tree.maxDepth());
         System.out.println("maxDistance: " + tree.maxDistance());
+        ArrayList<Integer> preOrder = new BinaryTree(nums.clone()).preOrder();
+        ArrayList<Integer> inOrder = new BinaryTree(nums.clone()).inOrder();
+        System.out.println("buildPostOrder: " + new BinaryTree(preOrder, inOrder).postOrder());
         System.out.println("binaryTreeTest end");
     }
 }

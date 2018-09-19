@@ -1,13 +1,14 @@
-import heap.HeapTest;
 import list.ListTest;
-import queue.QueueTest;
-import sorting.SortingTest;
-import stack.StackTest;
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-        SortingTest.speedTest(100000);
+    public static void main(String[] args){
+        ListTest.simpleListTest(10);
     }
-
 }

@@ -8,7 +8,43 @@ import java.util.Arrays;
 public class BinaryTree {
 
     private Node mRoot;
-    
+
+    public BinaryTree() {}
+
+    public BinaryTree(int[] nums) {
+        super();
+        for(int i = 0; i < nums.length; i++) {
+            insert(nums[i]);
+        }
+    }
+
+    public BinaryTree(ArrayList<Integer> preOrder, ArrayList<Integer> inOrder) {
+        if(preOrder == null || inOrder == null || preOrder.size() != inOrder.size()) {
+            return;
+        }
+        mRoot = build(preOrder, 0, preOrder.size() - 1,
+                inOrder, 0, inOrder.size() - 1);
+    }
+
+    private Node build(ArrayList<Integer> preOrder, int preStart, int preEnd,
+                       ArrayList<Integer> inOrder, int inStart, int inEnd) {
+        if(preStart > preEnd || inStart > inEnd) {
+            return null;
+        }
+        Node root = new Node(preOrder.get(preStart));
+        for(int i = inStart; i <= inEnd; i++) {
+            if(inOrder.get(i).equals(preOrder.get(preStart))) {
+                int offset = i - inStart;
+                root.mLeft = build(preOrder, preStart + 1, preStart + offset,
+                        inOrder, inStart, i - 1);
+                root.mRight = build(preOrder, preStart + offset + 1, preEnd,
+                        inOrder, i + 1, inEnd);
+                break;
+            }
+        }
+        return root;
+    }
+
     public Node insert(int data) {
         Node node = new Node(data);
         if(mRoot == null) {
