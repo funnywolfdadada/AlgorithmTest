@@ -1,38 +1,64 @@
-import array.MaxSubSum;
-import list.ListTest;
-import sorting.Sorting;
-import sorting.SortingTest;
 
-import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
 
 public class Main {
 
+    static final int LEN = 10;
+
     public static void main(String[] args){
-        //SortingTest.heapSortTest(10);
-        //SortingTest.topKTest(10, 5);
-        //SortingTest.speedTest(100000);
-        //SortingTest.binaryInsertionSortTest(10);
-        Random random = new Random(System.currentTimeMillis());
-        int[] nums = new int[10000000];
-        for(int i = 0; i < nums.length; i++) {
-            nums[i] = random.nextInt() % 256;
+        Scanner scanner = new Scanner(System.in);
+        int area[][] = new int[LEN][LEN];
+        for (int i = 0; i < LEN; i++) {
+            for (int j = 0; j < LEN; j++) {
+                area[i][j] = scanner.nextInt();
+                //System.out.print(area[i][j] + " ");
+            }
+            //System.out.println();
         }
-        long t;
-        int max;
-
-        t = System.currentTimeMillis();
-        max = MaxSubSum.maxSubSum5(nums);
-        t = System.currentTimeMillis() - t;
-        System.out.println(t + ": " + max);
-
-        t = System.currentTimeMillis();
-        max = MaxSubSum.maxSubSum(nums);
-        t = System.currentTimeMillis() - t;
-        System.out.println(t + ": " + max);
+        System.out.println(getMaxArea(area));
     }
 
+    static int getMaxArea(int[][] area) {
+        if(area == null || area[0] == null) {
+            return 0;
+        }
+        int len = area[0].length;
+        int[][] used = new int[len][len];
+        int maxArea = 0;
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len; j++) {
+                if(used[i][j] != 0) {
+                    continue;
+                }
+                int tmp = getMaxArea(area, i, j, len, used);
+                if(tmp > maxArea) {
+                    maxArea = tmp;
+                }
+            }
+        }
+        return maxArea;
+    }
+
+    static int getMaxArea(int[][] area, int i, int j, int len, int[][] used) {
+        used[i][j] = 1;
+        if(area[i][j] == 0) {
+            return 0;
+        }
+        int sum = 0;
+        if(i > 0 && used[i - 1][j] == 0) {
+            sum += getMaxArea(area, i - 1, j, len, used);
+        }
+        if(i + 1 < len && used[i + 1][j] == 0) {
+            sum += getMaxArea(area, i + 1, j, len, used);
+        }
+
+        if(j > 0 && used[i][j - 1] == 0) {
+            sum += getMaxArea(area, i, j - 1, len, used);
+        }
+        if(j + 1 < len && used[i][j + 1] == 0) {
+            sum += getMaxArea(area, i, j + 1, len, used);
+        }
+
+        return sum + 1;
+    }
 }
