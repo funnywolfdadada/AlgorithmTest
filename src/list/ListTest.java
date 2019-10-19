@@ -24,7 +24,7 @@ public class ListTest {
         System.out.println("remove List[0]: " + list.toString());
         list.reverse();
         System.out.println("reverse List: " + list.toString());
-        System.out.println("get " + (n / 2) + " from tail: " + list.getFromTail(n / 2));
+        System.out.println("find " + (n / 2) + " from tail: " + list.getFromTail(n / 2));
         System.out.println("getMiddle: " + list.getMiddle());
         System.out.println("toStringFromTail: " + list.toStringFromTail());
         list.tailPointTo(list.getLength() - 1);
